@@ -12,6 +12,11 @@ const notesReducer = (state=[],action)=>{
             const filtered = state.filter(ele=>ele._id!==action.payload._id)
             return [...filtered]
         }
+        case ('EDIT_NOTES'):{
+            const res = state.find(ele=>ele._id==action.payload._id)
+            state[state.indexOf(res)]=action.payload
+            return [...state]
+        }
         default:{
             return [...state]
         }

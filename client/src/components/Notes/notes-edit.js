@@ -1,17 +1,21 @@
 import React from 'react'
 import Form from './notes-form'
 import { connect } from 'react-redux'
-//import { startDeleteNotes } from '../../action/notes-action'
+import { startEditNotes } from '../../action/notes-action'
 
 class NotesEdit extends React.Component {
     constructor(props){
         super(props)
     }
     handleSubmit=(data)=>{
+        const id = this.props.match.params.id
         console.log(data)
-        
+        console.log(this.props)
+        this.props.dispatch(startEditNotes(id,data))
+        window.location.href='/user/notes'
     }
     render(){
+        
         return (
             <div>
                 <br/>

@@ -25,11 +25,20 @@ function Notes(props) {
         </div>
         <div className='col-md-1'></div>
         <div className='col-md-6'>
-        
+        {props.notes.length==0 ? 
+          <div class="card" style={{width: '100%'}}>
+          <div class="card-body">
+            <h5 class="card-title text-center">No Notes to display</h5>
+          </div>
+        </div>
+        :
+        <div>
           {props.notes.map((ele, i) => {
             return (
               <div key={i}>
                 <div  className="card" style={{width: '100%'}}>
+                
+                
                 <div className="card-body text-center">
                   <h5 className="card-title">{ele.title}</h5>
                   <p className="card-text">{ele.body}</p>
@@ -37,12 +46,14 @@ function Notes(props) {
                   value={ele._id}>Remove</button>
                   <Link to={`/user/notes/edit/${ele._id}`}><button style={{margin:'1% auto'}} className="btn btn-primary" value={ele._id}>Edit</button></Link>
                 </div>
+          
               </div>
               <br/>
               </div>
               
-            );
-          })}
+            )
+          })
+          }</div>}
         </div>
         
       </div>
