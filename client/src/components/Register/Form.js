@@ -111,7 +111,7 @@ import {
   
       return (
         <Form {...formItemLayout} onSubmit={this.handleSubmit}
-            style={{width:800}}
+            style={{width:'50%',margin:'auto 18%'}}
         >
             <Form.Item
             label={

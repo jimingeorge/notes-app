@@ -37,6 +37,7 @@ export default class Login extends React.Component{
     render(){
         return (
             <div style={{textAlign:'center'}}>
+                <br/>
                 <div style={{display:'inlineBlock',width:'30%',margin: '0 auto'}}>
                     <h1>Login</h1>
                     <LoginForm submit={this.handleSubmit}/>

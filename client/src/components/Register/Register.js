@@ -34,7 +34,8 @@ export default class Register extends React.Component {
         console.log('render')
         return (
             
-            <div>
+            <div className='text-center'>
+                <br/>
                 <h1>Register</h1>
                 <RegisterForm submit={this.handleClick}/>
             </div>

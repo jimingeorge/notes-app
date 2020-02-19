@@ -6,7 +6,7 @@ const notesReducer = (state=[],action)=>{
             return [...action.payload]
         }
         case('POST_NOTES'):{
-            return [{...action.payload},...state]
+            return [action.payload,...state]
         }
         case('DELETE_NOTES'):{
             const filtered = state.filter(ele=>ele._id!==action.payload._id)

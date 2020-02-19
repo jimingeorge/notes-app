@@ -15,7 +15,7 @@ class NormalLoginForm extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <Form onSubmit={this.handleSubmit} className="login-form">
+      <Form onSubmit={this.handleSubmit} className="login-form" >
         <Form.Item>
           {getFieldDecorator('username', {
             rules: [{ required: true, message: 'Please input your username!' }],
@@ -57,7 +57,7 @@ class NormalLoginForm extends React.Component {
           <Button type="primary" htmlType="submit" className="login-form-button">
             Log in
           </Button>
-          Or <a href="http://localhost:3000/user/register">register now!</a>
+           <span> Or</span> <a href="http://localhost:3000/user/register">register now!</a>
         </Form.Item>
       </Form>
     );
