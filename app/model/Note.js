@@ -14,6 +14,15 @@ const noteSchema=new Schema({
         type:Schema.Types.ObjectId,
         required:true,
         ref:'User'
+    },
+    color:{
+        type:String,
+        default:''
+    },
+    category:{
+        type:Schema.Types.ObjectId,
+        ref:'Category',
+        required:true
     }
 })
 

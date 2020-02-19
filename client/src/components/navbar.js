@@ -19,6 +19,11 @@ export default function Navbar() {
           Notes
         </a></Link>
       </li>
+            <li className="nav-item">
+            <Link to='/user/category'><a className="nav-link" style={{color:'white'}}  href="#">
+          Category
+        </a></Link>
+      </li>
       <li className="nav-item">
       <Link to='#' ><a className="nav-link" onClick={handleLogout} style={{color:'white'}}  href="#">
           Logout

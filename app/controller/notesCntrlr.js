@@ -2,7 +2,7 @@ const Note = require("../model/Note");
 const pick = require("lodash/pick");
 
 module.exports.create = (req, res) => {
-  const body = pick(req.body, ["title", "body", "user"]);
+  const body = pick(req.body, ["title", "body", "user","category","color"]);
   const note = new Note(body);
   note.user = req.user._id //as userId cannot be sent via front end, it must be sent by default backend
   note.save()
@@ -11,7 +11,7 @@ module.exports.create = (req, res) => {
 };
 
 module.exports.list = (req, res) => {
-  Note.find({ user: req.user })
+  Note.find({ user: req.user }).populate('category',['name'])
     .then(data => {
       if (data) {
         res.json(data);
@@ -24,7 +24,7 @@ module.exports.list = (req, res) => {
 module.exports.show = (req, res) => {
   const id = req.params.id;
 
-  Note.findOne({ _id: id })
+  Note.findOne({ _id: id }).populate('category',['name'])
     .then(data => res.send(data))
     .catch(err => res.send(err));
 };

@@ -6,12 +6,14 @@ import { Provider } from 'react-redux';
 import App from './App';
 import configureStore from './store/store';
 import {startGetNotes} from './action/notes-action'
+import {startGetCategory} from './action/category-action'
 // .babelrc or babel-loader option
 
 const store = configureStore()
 store.subscribe(()=>console.log(store.getState()))
 if(localStorage.getItem('authToken')){
     store.dispatch(startGetNotes())
+    store.dispatch(startGetCategory())
 }
 const ele = (
     <Provider store={store}>

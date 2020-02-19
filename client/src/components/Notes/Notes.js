@@ -5,10 +5,12 @@ import Form from "./notes-form";
 import { Link } from "react-router-dom";
 
 function Notes(props) {
+  
   const handleClick = formdata => {
     console.log(formdata);
     props.dispatch(startPostNotes(formdata));
   };
+  
   const handleRemove = e => {
     const target = e.target.value;
     console.log(target);
@@ -26,9 +28,9 @@ function Notes(props) {
         <div className='col-md-1'></div>
         <div className='col-md-6'>
         {props.notes.length==0 ? 
-          <div class="card" style={{width: '100%'}}>
-          <div class="card-body">
-            <h5 class="card-title text-center">No Notes to display</h5>
+          <div className="card" style={{width: '100%'}}>
+          <div className="card-body">
+            <h5 className="card-title text-center">No Notes to display</h5>
           </div>
         </div>
         :
@@ -39,12 +41,15 @@ function Notes(props) {
                 <div  className="card" style={{width: '100%'}}>
                 
                 
-                <div className="card-body text-center">
-                  <h5 className="card-title">{ele.title}</h5>
+                <div className={`card-body text-center ${ele.color}`} >
+                  <h5 className={`card-title ${ele.color}`}>{ele.title}</h5>
                   <p className="card-text">{ele.body}</p>
+            <h3 className="text-center badge badge-pill badge-secondary">{ele.category ? ele.category.name : ''}</h3>
+            <br/>
                   <button style={{margin:'auto 1%'}} href="#" className="btn btn-danger" onClick={handleRemove}
                   value={ele._id}>Remove</button>
-                  <Link to={`/user/notes/edit/${ele._id}`}><button style={{margin:'1% auto'}} className="btn btn-primary" value={ele._id}>Edit</button></Link>
+                  <Link to={`/user/notes/edit/${ele._id}`}><button style={{margin:'1% auto'}} className="btn btn-light" value={ele._id}>Edit</button></Link>
+                 
                 </div>
           
               </div>
