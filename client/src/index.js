@@ -12,8 +12,9 @@ import {startGetCategory} from './action/category-action'
 const store = configureStore()
 store.subscribe(()=>console.log(store.getState()))
 if(localStorage.getItem('authToken')){
-    store.dispatch(startGetNotes())
     store.dispatch(startGetCategory())
+    store.dispatch(startGetNotes())
+    
 }
 const ele = (
     <Provider store={store}>

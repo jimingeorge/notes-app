@@ -36,6 +36,10 @@ function Notes(props) {
         :
         <div>
           {props.notes.map((ele, i) => {
+            let a= ele.category.name
+            console.log(props.category)
+            console.log(a = ele.category.name)
+            console.log('find',props.category.find(ele=>ele.name==a).name)
             return (
               <div key={i}>
                 <div  className="card" style={{width: '100%'}}>
@@ -68,6 +72,8 @@ function Notes(props) {
 const stateMapToProps = state => {
   console.log(state);
   return {
+
+    category:state.category,
     notes: state.notes
   };
 };
