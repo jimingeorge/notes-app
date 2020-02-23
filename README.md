@@ -11,7 +11,7 @@
 
 ## Dependencies and Installation
 
-* Frontend
+* ### Frontend
 
 1. react `create-react-app ticket-master`
 2. react-router-dom `npm install --save react-router-dom`
@@ -21,7 +21,7 @@
 6. react-redux `npm install react-redux`
 7. redux-thunk `npm install redux-thunk`
 
-* Backend
+* ### Backend
 
 1. cors `npm install cors`
 2. express `npm install express`
